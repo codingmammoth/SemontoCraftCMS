@@ -1,0 +1,52 @@
+<div class="">
+
+    <h3>Caching</h3>
+    <p>
+        If wanted, you can cache the results of the tests 
+        to ensure the tests are not executed too often.
+    </p>
+
+    <div class="semonto-health-monitor__test-headers">
+        <div class="semonto-health-monitor__test-header semonto-health-monitor__test-header--value">Expiration time in seconds</div>
+        <div class="semonto-health-monitor__test-header semonto-health-monitor__test-header--value"></div>
+    </div>
+
+    <div class="semonto-health-monitor__test-row">
+        <div class="semonto-health-monitor__test-row-column">
+            <div class="semonto-health-monitor__switch-wrapper">
+                <label 
+                    for="checkboxcachingEnabled"
+                    class="semonto-health-monitor__switch-label"
+                >Enable caching</label>
+                <label class="semonto-health-monitor__switch">
+                    <input 
+                        type="checkbox"
+                        id="checkboxcachingEnabled" 
+                        value="1" 
+                        name="cachingEnabled"
+                        {{cachingEnabled ? 'checked' : ''}}
+                    >
+                    <span class="semonto-health-monitor__test-slider"></span>
+                </label>
+            </div>
+        </div>
+
+        <div class="semonto-health-monitor__test-row-column">
+            <input 
+                type="number" 
+                name="cachingLifespan" 
+                value="{{cachingLifespan}}" 
+                min="0" 
+                class="
+                    semonto-health-monitor__test-input
+                    {% if cachingLifespanError %}semonto-health-monitor__test-input--error{% endif %} 
+                "
+            > 
+        </div>      
+    </div>
+
+    {% if cachingLifespanError %}
+        <div class="semonto-health-monitor__test-error error-message errors">{{ cachingLifespanError }}</div>
+    {% endif %}
+
+</div>

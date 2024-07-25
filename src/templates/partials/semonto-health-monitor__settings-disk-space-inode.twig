@@ -1,0 +1,122 @@
+<div class="">
+
+    <h3>Disk space inode</h3>
+    <p>Test the amount of free inodes on your disks.</p>
+
+    {% if features.df_command %}
+
+        {% for testKey, test in tests %}
+            {% if test.test == 'DiskSpaceInode' %}
+                <div class="semonto-health-monitor__test-row">
+                    <div class="semonto-health-monitor__test-row-column">
+                        <div class="semonto-health-monitor__switch-wrapper">
+                            <label 
+                                for="tests[{{ testKey }}][enabled]"
+                                class="semonto-health-monitor__switch-label"
+                            >Check free inodes</label>
+                            <label class="semonto-health-monitor__switch">
+                                <input 
+                                    type="checkbox"
+                                    id="tests[{{ testKey }}][enabled]"
+                                    value="1" 
+                                    name="tests[{{ testKey }}][enabled]"
+                                    {{ test.enabled ? 'checked' : '' }}
+                                >
+                                <span class="semonto-health-monitor__test-slider"></span>
+                            </label> 
+                        </div>
+                    </div>
+                </div>
+
+                <div class="semonto-health-monitor__test-headers">
+                    <div class="semonto-health-monitor__test-header">Available disks</div>
+                    <div class="semonto-health-monitor__test-header semonto-health-monitor__test-header--value">Warning percentage</div>
+                    <div class="semonto-health-monitor__test-header semonto-health-monitor__test-header--value">Error percentage</div>
+                </div>
+
+                {% if test.config.disks is not empty %}
+                    {% for disk_name, disk_config in test.config.disks %}
+                        <div class="semonto-health-monitor__test-row">
+
+                            <div class="semonto-health-monitor__test-row-column">
+                                    <div class="semonto-health-monitor__switch-wrapper">
+                                    <label 
+                                        for="tests[{{ testKey }}][config][disks][{{ disk_name }}][enabled]"
+                                        class="semonto-health-monitor__switch-label"
+                                    >
+                                        {% if disk_name is defined and disk_name is not empty %}
+                                            {{ disk_name }}
+                                        {% endif %}
+                                    </label>
+                                    <label class="semonto-health-monitor__switch">
+                                        <input 
+                                            type="checkbox"
+                                            id="tests[{{ testKey }}][config][disks][{{ disk_name }}][enabled]"
+                                            value="1" 
+                                            name="tests[{{ testKey }}][config][disks][{{ disk_name }}][enabled]"
+                                            {{ (disk_config.enabled) ? 'checked' : '' }}
+                                        >
+                                        <span class="semonto-health-monitor__test-slider"></span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="semonto-health-monitor__test-row-column">
+                                <input 
+                                    type="number" 
+                                    id="tests[{{ testKey }}][config][disks][{{ disk_name }}][warning_percentage_threshold]" 
+                                    name="tests[{{ testKey }}][config][disks][{{ disk_name }}][warning_percentage_threshold]" 
+                                    value="{{ disk_config.warning_percentage_threshold }}" 
+                                    min="0" 
+                                    max="100"
+                                    required
+                                    class="
+                                        semonto-health-monitor__test-input
+                                        {% if disk_config.error is defined and disk_config.error %}semonto-health-monitor__test-input--error{% endif %} 
+                                        semonto-health-monitor-server-monitor__form-test-warning
+                                    "
+                                >
+                            </div>
+
+                            <div class="semonto-health-monitor__test-row-column">
+                                <input 
+                                    type="number" 
+                                    id="tests[{{ testKey }}][config][disks][{{ disk_name }}][error_percentage_threshold]" 
+                                    name="tests[{{ testKey }}][config][disks][{{ disk_name }}][error_percentage_threshold]" 
+                                    value="{{ disk_config.error_percentage_threshold }}" 
+                                    min="0" 
+                                    max="100"
+                                    required
+                                    class="
+                                        semonto-health-monitor__test-input
+                                        {% if disk_config.error is defined and disk_config.error %}semonto-health-monitor__test-input--error{% endif %} 
+                                        semonto-health-monitor-server-monitor__form-test-warning
+                                    "
+                                >
+                            </div>
+
+                        </div>
+
+                        {% if disk_config.error is defined and disk_config.error %}
+                            <div class="semonto-health-monitor__test-error error-message errors">{{ disk_config.error }}</div>
+                        {% endif %}
+
+                    {% endfor %}
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+
+    {% else %}
+        <p class="semonto-health-monitor__not-supported-warning">
+            ℹ️ This test is not available due to your server setup.
+            See
+            <a 
+                target="_blank"
+                rel="noopener noreferer"
+                href="https://semonto.com/how-to/how-to-monitor-a-craftcms-website-with-semonto"
+            >our docs</a>
+            for the server requirements.
+        </p>
+    {% endif %}
+
+</div>

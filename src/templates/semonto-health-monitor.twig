@@ -1,0 +1,102 @@
+{% extends "_layouts/cp" %}
+{% do view.registerAssetBundle("codingmammoth\\craftsemontohealthmonitor\\PluginBundle") %}
+{% set title = "Semonto Health Monitor"|t('semonto-health-monitor') %}
+{% import '_includes/forms.twig' as forms %}
+{% set selectedTab = 'health-monitor' %}
+
+{% set tabs = {
+    'health-monitor': { 
+        label: "Semonto"|t, 
+        url: url('settings/plugins/semonto-health-monitor') 
+    },
+    'website-monitoring': { 
+        label: "Website Monitoring"|t, 
+        url: url('settings/plugins/semonto-health-monitor/website-monitoring') 
+    },
+    'server-monitoring': { 
+        label: "Server Monitoring"|t, 
+        url: url('settings/plugins/semonto-health-monitor/server-monitoring') 
+    },
+} %}
+
+{% block content %}
+    <div class="semonto-health-monitor">
+
+        <div class="semonto-health-monitor__hero">
+        
+            <div class="semonto-health-monitor__hero-banner">
+                <div class="semonto-health-monitor__hero-icon-wrapper">
+                    <img class="semonto-health-monitor__hero-icon" width="32" height="32" src="{{ semontoLogoUrl }}" />
+                </div>
+                <div>
+                    <p>
+                        Hi, thank you for installing the Semonto plug in.
+                    </p>
+                </div>
+            </div>
+
+            <div class="semonto-health-monitor__hero-content-wrapper">
+                <div class="semonto-health-monitor__hero-content">
+                    <div>
+                        <h2>With semonto you can monitor</h2>
+                        <ol>
+                            <li>
+                                <strong>The health of your website</strong>
+
+                                <ul class="semonto-health-monitor__hero-content-list">
+                                    <li>Uptime</li>
+                                    <li>Broken links</li>
+                                    <li>SSL</li>
+                                    <li>Mixed content</li>
+                                    <li>Domain expiration</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <strong>The health of your server</strong>
+
+                                <ul class="semonto-health-monitor__hero-content-list">
+                                    <li>Server load</li>
+                                    <li>Database</li>
+                                    <li>Disk space</li>
+                                </ul>
+                            </li>
+                        </ol>
+
+                        <h2>How to get started</h2>
+
+                        <ol>
+                            <li>
+                                Create a Semonto account. Visit 
+                                <a 
+                                    target="_blank" 
+                                    rel="noopener noreferrer" 
+                                    href="https://supervisor.semonto.com/signup?url={{ craft.app.sites.primarySite.baseUrl|url_encode }}"
+                                ><strong>semonto.com</strong></a>  to get a free 14-day trial.
+                            </li>
+                            <li>
+                                To monitor the health of your website, click 
+                                <a href="{{ url('settings/plugins/semonto-health-monitor/website-monitoring') }}"
+                                ><strong>here</strong></a>.
+                            </li>
+                            <li>
+                                If you also want to monitor the server in more depth, click 
+                                <a href="{{ url('settings/plugins/semonto-health-monitor/server-monitoring')  }}"
+                                ><strong>here</strong></a>.
+                            </li>
+                        </ol>
+
+                    </div>
+                </div>
+                
+                <div class="semonto-health-monitor__hero-image-wrapper">
+                    <div>
+                        <img class="semonto-health-monitor__hero-image" src="{{ semontoDashboard }}" alt="Semonto" />
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+{% endblock %}

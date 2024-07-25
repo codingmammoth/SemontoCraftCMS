@@ -1,0 +1,256 @@
+.semonto-health-monitor {
+  input[type="number"],
+  input[type="text"] {
+    color: var(--text-color);
+    border: 1px solid rgba(96, 125, 159, .25);
+    padding: 0.5em 0.75em;
+    border-radius: 0.25em;
+    min-height: 2.125rem;
+  }
+
+  input[type="number"] {
+    text-align: center;
+  }
+}
+
+.semonto-health-monitor__hero-banner {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5em;
+}
+
+.semonto-health-monitor__hero-icon-wrapper {
+  margin-right: 1em;
+}
+
+.semonto-health-monitor__hero-icon {
+  width: 3em;
+  height: 3em;
+  border-radius: 0.25em;
+}
+
+.semonto-health-monitor__hero-content {
+  margin-bottom: 1.5em;
+}
+
+.semonto-health-monitor__hero-image {
+  box-shadow: rgba(0, 0, 0, 0.15) 0 0.5em 1em 0;
+}
+
+.semonto-health-monitor__hero-content-list {
+  list-style-type: disc;
+  padding-left: 1.5em;
+  margin-bottom: 1.5em;
+}
+
+.semonto-health-monitor__cta-button {
+  width: 100%;
+}
+
+.semonto-health-monitor__settings {
+  max-width: 700px;
+}
+
+.semonto-health-monitor__settings-form {
+  max-width: 100%;
+  width: fit-content;
+}
+
+.semonto-health-monitor__settings-form-submit-wrapper {
+  display: flex;
+  justify-content: end;
+  position: relative;
+}
+
+.semonto-health-monitor__settings-form-submit-button {
+  position: relative;
+  top: calc(14px + 1.42em);
+  left: 0;
+}
+
+.semonto-health-monitor__test-headers {
+  display: flex;
+  justify-content: end;
+  margin-bottom: 0.75em;
+}
+
+.semonto-health-monitor__test-header {
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+}
+
+.semonto-health-monitor__test-header--value {
+  width: 25%;
+  display: flex;
+  align-items: center;
+}
+
+.semonto-health-monitor__test-header--value:nth-child(2) {
+  padding-left: 1.75em;
+  padding-right: 0.75em;
+}
+
+.semonto-health-monitor__test-row {
+  display: flex;
+}
+
+.semonto-health-monitor__test-row:not(:last-child) {
+  margin-bottom: 0.75em;
+}
+
+.semonto-health-monitor__test-row-column {
+  display: flex;
+  align-items: center;
+}
+
+.semonto-health-monitor__test-row-column:nth-child(1) {
+  width: 50%;
+  padding-right: 1em;
+}
+
+.semonto-health-monitor__test-row-column:nth-child(2) {
+  width: 25%;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+
+.semonto-health-monitor__test-row-column:nth-child(3) {
+  width: 25%;
+  padding-left: 1em;
+}
+
+.semonto-health-monitor__test-input {
+  max-width: 100%;
+  width: 100%;
+}
+
+.semonto-health-monitor__test-input:invalid,
+.semonto-health-monitor__test-input--error {
+  box-shadow: 0 0 0 1px var(--error-color), 0 0 0 3px var(--error-color) !important;
+}
+
+.semonto-health-monitor__test-error {
+  color: var(--error-color);
+  font-size: 0.8em;
+  text-align: right;
+  font-weight: 600 !important;
+  margin-bottom: 1em;
+}
+
+.semonto-health-monitor__switch-wrapper {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  width: 100%;
+}
+
+.semonto-health-monitor__switch-label {
+  text-align: right;
+  cursor: pointer;
+  margin-right: 0.5em;
+}
+
+.semonto-health-monitor__switch {
+  position: relative;
+  display: inline-block;
+  width: 2.5em;
+  height: 1.5em;
+  flex-shrink: 0;
+}
+
+.semonto-health-monitor__switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.semonto-health-monitor__test-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 0.75em;
+}
+
+.semonto-health-monitor__test-slider:before {
+  border-radius: 0.75em;
+}
+
+.semonto-health-monitor__test-slider:before {
+  position: absolute;
+  content: "";
+  width: 1.1em;
+  height: 1.1em;
+  left: .2em;
+  bottom: .2em;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.semonto-health-monitor__switch input:checked + .semonto-health-monitor__test-slider {
+  background-color: #1992d4;
+  background-color: var(--blue-600);
+}
+
+.semonto-health-monitor__switch input:focus + .semonto-health-monitor__test-slider {
+  box-shadow: 0 0 1px #1992d4;
+  box-shadow: 0 0 1px var(--blue-600);
+}
+
+.semonto-health-monitor__switch input:checked + .semonto-health-monitor__test-slider:before {
+  -webkit-transform: translateX(1em);
+  -ms-transform: translateX(1em);
+  transform: translateX(1em);
+}
+
+.semonto-health-monitor__switch input:disabled + .semonto-health-monitor__test-slider {
+  background-color: #ccc;
+}
+
+.semonto-health-monitor__not-supported-warning {
+  padding: 1em;
+  border: 1px solid;
+  border-color: #1992d4;
+  border-color: var(--blue-600);
+  background-color: #e3f8ff;
+  background-color: var(--blue-050);
+  color: #0b69a3;
+  color: var(--blue-800);
+  border-radius: 0.25em;
+}
+
+.semonto-health-monitor__not-supported-warning a {
+  text-decoration: underline;
+
+  color: #035388;
+  color: var(--blue-900);
+}
+
+@media screen and (min-width: 768px) {
+
+  .semonto-health-monitor__hero-content-wrapper {
+    display: flex;
+  }
+
+  .semonto-health-monitor__hero-content {
+    margin-bottom: 0;
+    display: flex;
+    margin-right: 3em;
+    max-width: 50%;
+  }
+
+  .semonto-health-monitor__hero-image-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+
+  .semonto-health-monitor__hero-image {
+    max-width: 400px;
+  }
+}

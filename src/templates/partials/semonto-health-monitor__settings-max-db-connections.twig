@@ -1,0 +1,77 @@
+<div class="">
+
+    <h3>Number of concurrent database connections</h3>
+    <p>
+        Receive an alert if you exceed the allowed percentage of 
+        active database connections.
+    </p>
+
+    <div class="semonto-health-monitor__test-headers">
+        <div class="semonto-health-monitor__test-header semonto-health-monitor__test-header--value">Warning percentage</div>
+        <div class="semonto-health-monitor__test-header semonto-health-monitor__test-header--value">Error percentage</div>
+    </div>
+
+    {% for testKey, test in tests %}    
+        {% if test.test == 'CraftCMSMaxDBConnection' %}
+            <div class="semonto-health-monitor__test-row">
+                <div class="semonto-health-monitor__test-row-column">
+                    <div class="semonto-health-monitor__switch-wrapper">
+                        <label 
+                            for="tests[{{ testKey }}][enabled]"
+                            class="semonto-health-monitor__switch-label"
+                        >Check active database connections</label>
+                        <label class="semonto-health-monitor__switch">
+                            <input 
+                                type="checkbox"
+                                id="tests[{{ testKey }}][enabled]"
+                                value="1" 
+                                name="tests[{{ testKey }}][enabled]"
+                                {{ test.enabled ? 'checked' : '' }}
+                            >
+                            <span class="semonto-health-monitor__test-slider"></span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="semonto-health-monitor__test-row-column">
+                    <input 
+                        type="number" 
+                        id="tests[{{ testKey }}][config][warning_percentage_threshold]" 
+                        name="tests[{{ testKey }}][config][warning_percentage_threshold]" 
+                        value="{{ test.config.warning_percentage_threshold }}" 
+                        min="0" 
+                        max="100" 
+                        required
+                        class="
+                            semonto-health-monitor__test-input 
+                            {% if test.error %}semonto-health-monitor__test-input--error{% endif %} 
+                            semonto-health-monitor-server-monitor__form-test-warning
+                        "
+                    >
+                </div>
+
+                <div class="semonto-health-monitor__test-row-column">
+                    <input 
+                        type="number" 
+                        id="tests[{{ testKey }}][config][error_percentage_threshold]" 
+                        name="tests[{{ testKey }}][config][error_percentage_threshold]" 
+                        value="{{ test.config.error_percentage_threshold }}" 
+                        min="0" 
+                        max="100" 
+                        required
+                        class="
+                            semonto-health-monitor__test-input 
+                            {% if test.error %}semonto-health-monitor__test-input--error{% endif %} 
+                            semonto-health-monitor-server-monitor__form-test-warning
+                        "
+                    >
+                </div>
+            </div>
+
+            {% if test.error %}
+                <div class="semonto-health-monitor__test-error error-message errors">{{ test.error }}</div>
+            {% endif %}
+
+        {% endif %}
+    {% endfor %}
+</div>

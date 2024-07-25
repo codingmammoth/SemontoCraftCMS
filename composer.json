@@ -1,0 +1,44 @@
+{
+  "name": "coding-mammoth/craft-semonto-health-monitor",
+  "type": "craft-plugin",
+  "license": "mit",
+  "support": {
+    "docs": "https://semonto.com/how-to/how-to-monitor-a-craftcms-website-with-semonto",
+    "email": "info@semonto.com"
+  },
+  "require": {
+    "php": ">=8.0.2",
+    "craftcms/cms": ">=4.0.0"
+  },
+  "require-dev": {
+    "craftcms/ecs": "dev-main",
+    "craftcms/phpstan": "dev-main"
+  },
+  "autoload": {
+    "psr-4": {
+      "codingmammoth\\craftsemontohealthmonitor\\": "src/"
+    }
+  },
+  "extra": {
+    "handle": "semonto-health-monitor",
+    "name": "Semonto Health Monitor",
+    "developer": "Coding Mammoth",
+    "documentationUrl": "https://semonto.com/how-to/how-to-monitor-a-craftcms-website-with-semonto",
+    "developerUrl": "https://codingmammoth.com"
+  },
+  "scripts": {
+    "check-cs": "ecs check --ansi",
+    "fix-cs": "ecs check --ansi --fix",
+    "phpstan": "phpstan --memory-limit=1G"
+  },
+  "config": {
+    "sort-packages": true,
+    "platform": {
+      "php": "8.2"
+    },
+    "allow-plugins": {
+      "yiisoft/yii2-composer": true,
+      "craftcms/plugin-installer": true
+    }
+  }
+}
