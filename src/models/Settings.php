@@ -1,12 +1,12 @@
 <?php
 
-namespace codingmammoth\craftsemontohealthmonitor\models;
+namespace codingmammoth\craftsemontowebsitemonitor\models;
 
 use Craft;
 use craft\base\Model;
 use Exception;
 
-use function codingmammoth\craftsemontohealthmonitor\functions\{
+use function codingmammoth\craftsemontowebsitemonitor\functions\{
     check_available_features
 };
 
