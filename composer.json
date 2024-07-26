@@ -1,5 +1,5 @@
 {
-  "name": "coding-mammoth/craft-semonto-health-monitor",
+  "name": "coding-mammoth/craft-semonto-website-monitor",
   "type": "craft-plugin",
   "license": "mit",
   "support": {
@@ -16,12 +16,12 @@
   },
   "autoload": {
     "psr-4": {
-      "codingmammoth\\craftsemontohealthmonitor\\": "src/"
+      "codingmammoth\\craftsemontowebsitemonitor\\": "src/"
     }
   },
   "extra": {
-    "handle": "semonto-health-monitor",
-    "name": "Semonto Health Monitor",
+    "handle": "semonto-website-monitor",
+    "name": "Semonto Website Monitor",
     "developer": "Coding Mammoth",
     "documentationUrl": "https://semonto.com/how-to/how-to-monitor-a-craftcms-website-with-semonto",
     "developerUrl": "https://codingmammoth.com"

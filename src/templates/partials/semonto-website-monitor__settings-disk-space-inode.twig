@@ -7,14 +7,14 @@
 
         {% for testKey, test in tests %}
             {% if test.test == 'DiskSpaceInode' %}
-                <div class="semonto-health-monitor__test-row">
-                    <div class="semonto-health-monitor__test-row-column">
-                        <div class="semonto-health-monitor__switch-wrapper">
+                <div class="semonto-website-monitor__test-row">
+                    <div class="semonto-website-monitor__test-row-column">
+                        <div class="semonto-website-monitor__switch-wrapper">
                             <label 
                                 for="tests[{{ testKey }}][enabled]"
-                                class="semonto-health-monitor__switch-label"
+                                class="semonto-website-monitor__switch-label"
                             >Check free inodes</label>
-                            <label class="semonto-health-monitor__switch">
+                            <label class="semonto-website-monitor__switch">
                                 <input 
                                     type="checkbox"
                                     id="tests[{{ testKey }}][enabled]"
@@ -22,33 +22,33 @@
                                     name="tests[{{ testKey }}][enabled]"
                                     {{ test.enabled ? 'checked' : '' }}
                                 >
-                                <span class="semonto-health-monitor__test-slider"></span>
+                                <span class="semonto-website-monitor__test-slider"></span>
                             </label> 
                         </div>
                     </div>
                 </div>
 
-                <div class="semonto-health-monitor__test-headers">
-                    <div class="semonto-health-monitor__test-header">Available disks</div>
-                    <div class="semonto-health-monitor__test-header semonto-health-monitor__test-header--value">Warning percentage</div>
-                    <div class="semonto-health-monitor__test-header semonto-health-monitor__test-header--value">Error percentage</div>
+                <div class="semonto-website-monitor__test-headers">
+                    <div class="semonto-website-monitor__test-header">Available disks</div>
+                    <div class="semonto-website-monitor__test-header semonto-website-monitor__test-header--value">Warning percentage</div>
+                    <div class="semonto-website-monitor__test-header semonto-website-monitor__test-header--value">Error percentage</div>
                 </div>
 
                 {% if test.config.disks is not empty %}
                     {% for disk_name, disk_config in test.config.disks %}
-                        <div class="semonto-health-monitor__test-row">
+                        <div class="semonto-website-monitor__test-row">
 
-                            <div class="semonto-health-monitor__test-row-column">
-                                    <div class="semonto-health-monitor__switch-wrapper">
+                            <div class="semonto-website-monitor__test-row-column">
+                                    <div class="semonto-website-monitor__switch-wrapper">
                                     <label 
                                         for="tests[{{ testKey }}][config][disks][{{ disk_name }}][enabled]"
-                                        class="semonto-health-monitor__switch-label"
+                                        class="semonto-website-monitor__switch-label"
                                     >
                                         {% if disk_name is defined and disk_name is not empty %}
                                             {{ disk_name }}
                                         {% endif %}
                                     </label>
-                                    <label class="semonto-health-monitor__switch">
+                                    <label class="semonto-website-monitor__switch">
                                         <input 
                                             type="checkbox"
                                             id="tests[{{ testKey }}][config][disks][{{ disk_name }}][enabled]"
@@ -56,12 +56,12 @@
                                             name="tests[{{ testKey }}][config][disks][{{ disk_name }}][enabled]"
                                             {{ (disk_config.enabled) ? 'checked' : '' }}
                                         >
-                                        <span class="semonto-health-monitor__test-slider"></span>
+                                        <span class="semonto-website-monitor__test-slider"></span>
                                     </label>
                                 </div>
                             </div>
 
-                            <div class="semonto-health-monitor__test-row-column">
+                            <div class="semonto-website-monitor__test-row-column">
                                 <input 
                                     type="number" 
                                     id="tests[{{ testKey }}][config][disks][{{ disk_name }}][warning_percentage_threshold]" 
@@ -71,14 +71,14 @@
                                     max="100"
                                     required
                                     class="
-                                        semonto-health-monitor__test-input
-                                        {% if disk_config.error is defined and disk_config.error %}semonto-health-monitor__test-input--error{% endif %} 
-                                        semonto-health-monitor-server-monitor__form-test-warning
+                                        semonto-website-monitor__test-input
+                                        {% if disk_config.error is defined and disk_config.error %}semonto-website-monitor__test-input--error{% endif %} 
+                                        semonto-website-monitor-server-monitor__form-test-warning
                                     "
                                 >
                             </div>
 
-                            <div class="semonto-health-monitor__test-row-column">
+                            <div class="semonto-website-monitor__test-row-column">
                                 <input 
                                     type="number" 
                                     id="tests[{{ testKey }}][config][disks][{{ disk_name }}][error_percentage_threshold]" 
@@ -88,9 +88,9 @@
                                     max="100"
                                     required
                                     class="
-                                        semonto-health-monitor__test-input
-                                        {% if disk_config.error is defined and disk_config.error %}semonto-health-monitor__test-input--error{% endif %} 
-                                        semonto-health-monitor-server-monitor__form-test-warning
+                                        semonto-website-monitor__test-input
+                                        {% if disk_config.error is defined and disk_config.error %}semonto-website-monitor__test-input--error{% endif %} 
+                                        semonto-website-monitor-server-monitor__form-test-warning
                                     "
                                 >
                             </div>
@@ -98,7 +98,7 @@
                         </div>
 
                         {% if disk_config.error is defined and disk_config.error %}
-                            <div class="semonto-health-monitor__test-error error-message errors">{{ disk_config.error }}</div>
+                            <div class="semonto-website-monitor__test-error error-message errors">{{ disk_config.error }}</div>
                         {% endif %}
 
                     {% endfor %}
@@ -107,7 +107,7 @@
         {% endfor %}
 
     {% else %}
-        <p class="semonto-health-monitor__not-supported-warning">
+        <p class="semonto-website-monitor__not-supported-warning">
             ℹ️ This test is not available due to your server setup.
             See
             <a 

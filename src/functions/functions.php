@@ -1,6 +1,6 @@
 <?php
 
-namespace codingmammoth\craftsemontohealthmonitor\functions;
+namespace codingmammoth\craftsemontowebsitemonitor\functions;
 
 function check_available_features ()
 {

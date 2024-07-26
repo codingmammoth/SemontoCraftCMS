@@ -1,10 +1,10 @@
-class SemontoHealthMonitorServerMonitoringForm {
+class SemontoWebsiteMonitorServerMonitoringForm {
   formElement = null
   enableCMSUpdates = null
   enableCMSUpdatesNonCritical = null
 
   checkForInvalidForms () {
-    const invalidInputs = Array.from(this.formElement.querySelectorAll('.semonto-health-monitor__test-input--error'))
+    const invalidInputs = Array.from(this.formElement.querySelectorAll('.semonto-website-monitor__test-input--error'))
 
     if (invalidInputs.length > 0) {
       invalidInputs[0].scrollIntoView({ block: 'center' })
@@ -31,9 +31,9 @@ class SemontoHealthMonitorServerMonitoringForm {
   }
 }
 
-const formElement = document.querySelector(".semonto-health-monitor__settings-form");
+const formElement = document.querySelector(".semonto-website-monitor__settings-form");
 if (formElement) {
-  new SemontoHealthMonitorServerMonitoringForm(formElement);
+  new SemontoWebsiteMonitorServerMonitoringForm(formElement);
 }
 
 function confirmReset() {

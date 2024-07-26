@@ -1,6 +1,6 @@
 <?php
 
-namespace codingmammoth\craftsemontohealthmonitor;
+namespace codingmammoth\craftsemontowebsitemonitor;
 
 use craft\web\AssetBundle;
 use craft\web\assets\cp\CpAsset;
@@ -10,7 +10,7 @@ class PluginBundle extends AssetBundle
     public function init()
     {
         // define the path that your publishable resources live
-        $this->sourcePath = '@codingmammoth/craftsemontohealthmonitor/resources';
+        $this->sourcePath = '@codingmammoth/craftsemontowebsitemonitor/resources';
 
         // define the dependencies
         $this->depends = [
@@ -20,11 +20,11 @@ class PluginBundle extends AssetBundle
         // define the relative path to CSS/JS files that should be registered with the page
         // when this asset bundle is registered
         $this->js = [
-            'semonto-health-monitor.js',
+            'semonto-website-monitor.js',
         ];
 
         $this->css = [
-            'semonto-health-monitor.css',
+            'semonto-website-monitor.css',
         ];
 
         parent::init();

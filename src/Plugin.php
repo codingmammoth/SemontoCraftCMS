@@ -1,9 +1,9 @@
 <?php
 
-namespace codingmammoth\craftsemontohealthmonitor;
+namespace codingmammoth\craftsemontowebsitemonitor;
 
 use Craft;
-use codingmammoth\craftsemontohealthmonitor\models\Settings;
+use codingmammoth\craftsemontowebsitemonitor\models\Settings;
 use craft\base\Model;
 use craft\base\Plugin as BasePlugin;
 use craft\web\Controller;
@@ -16,7 +16,7 @@ use yii\web\Response;
 use craft\web\View;
 
 /**
- * Semonto Health Monitor plugin
+ * Semonto Website Monitor plugin
  *
  * @method static Plugin getInstance()
  * @method Settings getSettings()
@@ -49,7 +49,7 @@ class Plugin extends BasePlugin
             UrlManager::class,
             UrlManager::EVENT_REGISTER_SITE_URL_RULES,
             function (RegisterUrlRulesEvent $event) {
-                $event->rules['health'] = 'semonto-health-monitor/endpoint/health';
+                $event->rules['health'] = 'semonto-website-monitor/endpoint/health';
             }
         );
 
@@ -57,8 +57,8 @@ class Plugin extends BasePlugin
             UrlManager::class,
             UrlManager::EVENT_REGISTER_CP_URL_RULES,
             function (RegisterUrlRulesEvent $event) {
-                $event->rules['settings/plugins/semonto-health-monitor/website-monitoring'] = 'semonto-health-monitor/plugin/website-monitoring';
-                $event->rules['settings/plugins/semonto-health-monitor/server-monitoring'] = 'semonto-health-monitor/plugin/server-monitoring';
+                $event->rules['settings/plugins/semonto-website-monitor/website-monitoring'] = 'semonto-website-monitor/plugin/website-monitoring';
+                $event->rules['settings/plugins/semonto-website-monitor/server-monitoring'] = 'semonto-website-monitor/plugin/server-monitoring';
             }
         );
 
@@ -67,7 +67,7 @@ class Plugin extends BasePlugin
             Cp::EVENT_REGISTER_CP_NAV_ITEMS,
             function (RegisterCpNavItemsEvent $event) {
                 $event->navItems[] = [
-                    'url' => 'settings/plugins/semonto-health-monitor',
+                    'url' => 'settings/plugins/semonto-website-monitor',
                     'label' => 'Semonto',
                     'icon' => '@plugin/icon-mask.svg'
                 ];
@@ -88,19 +88,19 @@ class Plugin extends BasePlugin
         $this->view->registerAssetBundle(PluginBundle::class);
 
         $imageUrl = \Craft::$app->assetManager->getPublishedUrl(
-            '@codingmammoth/craftsemontohealthmonitor/resources',
+            '@codingmammoth/craftsemontowebsitemonitor/resources',
             true,
             'semonto-dashboard.png'
         );
 
         $semontoLogoUrl = \Craft::$app->assetManager->getPublishedUrl(
-            '@codingmammoth/craftsemontohealthmonitor/resources',
+            '@codingmammoth/craftsemontowebsitemonitor/resources',
             true,
             'semonto-logo.png'
         );
 
 
-        $html = Craft::$app->getView()->renderPageTemplate('semonto-health-monitor/semonto-health-monitor', [
+        $html = Craft::$app->getView()->renderPageTemplate('semonto-website-monitor/semonto-website-monitor', [
             'semontoDashboard' => $imageUrl,
             'semontoLogoUrl' => $semontoLogoUrl
         ]);
