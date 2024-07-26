@@ -20,7 +20,7 @@
     }
   },
   "extra": {
-    "handle": "semonto-health-monitor",
+    "handle": "semonto-website-monitor",
     "name": "Semonto Website Monitor",
     "developer": "Coding Mammoth",
     "documentationUrl": "https://semonto.com/how-to/how-to-monitor-a-craftcms-website-with-semonto",
