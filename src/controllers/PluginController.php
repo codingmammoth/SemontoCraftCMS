@@ -1,11 +1,11 @@
 <?php
 
-namespace codingmammoth\craftsemontohealthmonitor\controllers;
+namespace codingmammoth\craftsemontowebsitemonitor\controllers;
 
 use Craft;
 use craft\web\Controller;
 
-use function codingmammoth\craftsemontohealthmonitor\functions\{
+use function codingmammoth\craftsemontowebsitemonitor\functions\{
     check_available_features
 };
 
@@ -16,7 +16,7 @@ class PluginController extends Controller
     private function getSemontoLogoUrl()
     {
         return \Craft::$app->assetManager->getPublishedUrl(
-            '@codingmammoth/craftsemontohealthmonitor/resources',
+            '@codingmammoth/craftsemontowebsitemonitor/resources',
             true,
             'semonto-logo.png'
         );
@@ -26,13 +26,13 @@ class PluginController extends Controller
     {
         $semontoLogoUrl = $this->getSemontoLogoUrl();
         $imageUrl = \Craft::$app->assetManager->getPublishedUrl(
-            '@codingmammoth/craftsemontohealthmonitor/resources',
+            '@codingmammoth/craftsemontowebsitemonitor/resources',
             true,
             'semonto-website-dashboard.png'
         );
         
         return $this->renderTemplate(
-            'semonto-health-monitor/semonto-health-monitor-website-monitoring',
+            'semonto-website-monitor/semonto-website-monitor-website-monitoring',
             [
                 'semontoLogoUrl' => $semontoLogoUrl,
                 'semontoDashboard' => $imageUrl
@@ -42,7 +42,7 @@ class PluginController extends Controller
 
     public function actionServerMonitoring()
     {
-        $plugin = Craft::$app->plugins->getPlugin('semonto-health-monitor');
+        $plugin = Craft::$app->plugins->getPlugin('semonto-website-monitor');
 
         if ($plugin === null) {
             Craft::error('Could not find the plugin', __METHOD__);
@@ -57,9 +57,9 @@ class PluginController extends Controller
         $endpoint = Craft::$app->getSites()->getCurrentSite()->baseUrl . 'health';
         $semontoLogoUrl = $this->getSemontoLogoUrl();
         $imageUrl = \Craft::$app->assetManager->getPublishedUrl(
-            '@codingmammoth/craftsemontohealthmonitor/resources',
+            '@codingmammoth/craftsemontowebsitemonitor/resources',
             true,
-            'semonto-health-monitor-server-monitoring.png'
+            'semonto-website-monitor-server-monitoring.png'
         );
 
         // Data with validation or that could have been changed by the user.
@@ -79,7 +79,7 @@ class PluginController extends Controller
             $cachingLifespanError = false;
         }
 
-        return $this->renderTemplate('semonto-health-monitor/semonto-health-monitor-server-monitoring', [
+        return $this->renderTemplate('semonto-website-monitor/semonto-website-monitor-server-monitoring', [
             'features' => $features,
             'tests' => $tests,
             'endpoint' => $endpoint,
@@ -121,7 +121,7 @@ class PluginController extends Controller
     {
         $this->requirePostRequest();
 
-        $plugin = Craft::$app->plugins->getPlugin('semonto-health-monitor');
+        $plugin = Craft::$app->plugins->getPlugin('semonto-website-monitor');
     
         if ($plugin === null) {
             Craft::error('Could not find the plugin', __METHOD__);
@@ -308,7 +308,7 @@ class PluginController extends Controller
     {
         $this->requirePostRequest();
 
-        $plugin = Craft::$app->plugins->getPlugin('semonto-health-monitor');
+        $plugin = Craft::$app->plugins->getPlugin('semonto-website-monitor');
 
         if ($plugin === null) {
             Craft::error('Could not find the plugin', __METHOD__);
