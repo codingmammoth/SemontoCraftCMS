@@ -1,4 +1,7 @@
 # Release Notes for Semonto Website Monitor
 
-## 1.0.0
+## v1.0.0
 - Initial release
+
+## v1.0.1 - 2024-07-26
+- Adds support for CraftCMS 5
