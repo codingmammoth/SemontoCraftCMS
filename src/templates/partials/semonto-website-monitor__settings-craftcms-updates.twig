@@ -8,14 +8,14 @@
 
     {% for testKey, test in tests %}
         {% if test.test == 'CraftCMSUpdates' %}
-            <div class="semonto-health-monitor__test-row">
-                <div class="semonto-health-monitor__test-row-column">
-                    <div class="semonto-health-monitor__switch-wrapper">
+            <div class="semonto-website-monitor__test-row">
+                <div class="semonto-website-monitor__test-row-column">
+                    <div class="semonto-website-monitor__switch-wrapper">
                         <label 
                             for="tests[{{ testKey }}][enabled]"
-                            class="semonto-health-monitor__switch-label"
+                            class="semonto-website-monitor__switch-label"
                         >Monitor for updates</label>
-                        <label class="semonto-health-monitor__switch">
+                        <label class="semonto-website-monitor__switch">
                             <input 
                                 type="checkbox"
                                 id="tests[{{ testKey }}][enabled]"
@@ -23,7 +23,7 @@
                                 name="tests[{{ testKey }}][enabled]" 
                                 {{ test.enabled ? 'checked' : '' }}
                             >
-                            <span class="semonto-health-monitor__test-slider"></span>
+                            <span class="semonto-website-monitor__test-slider"></span>
                         </label>
                         <input 
                             type="hidden" 
@@ -37,14 +37,14 @@
                 Optionally, you can also get a warning of regular pending updates.
             </p>
 
-            <div class="semonto-health-monitor__test-row">
-                <div class="semonto-health-monitor__test-row-column">
-                    <div class="semonto-health-monitor__switch-wrapper">
+            <div class="semonto-website-monitor__test-row">
+                <div class="semonto-website-monitor__test-row-column">
+                    <div class="semonto-website-monitor__switch-wrapper">
                         <label 
                             for="tests[{{ testKey }}][config][alert_non_critical_updates]"
-                            class="semonto-health-monitor__switch-label"
+                            class="semonto-website-monitor__switch-label"
                         >Treat regular updates as a warning</label>
-                        <label class="semonto-health-monitor__switch">
+                        <label class="semonto-website-monitor__switch">
                             <input 
                                 type="checkbox"
                                 id="tests[{{ testKey }}][config][alert_non_critical_updates]"
@@ -53,7 +53,7 @@
                                 {{ test.config.alert_non_critical_updates ? 'checked' : '' }}
                                 {{ test.enabled ? '' : 'disabled' }}
                             >
-                            <span class="semonto-health-monitor__test-slider"></span>
+                            <span class="semonto-website-monitor__test-slider"></span>
                         </label>
                     </div>
                 </div>

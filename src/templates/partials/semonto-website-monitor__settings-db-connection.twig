@@ -5,14 +5,14 @@
 
     {% for testKey, test in tests %}
         {% if test.test == 'CraftCMSCheckDBConnection' %}
-            <div class="semonto-health-monitor__test-row">
-                <div class="semonto-health-monitor__test-row-column">
-                    <div class="semonto-health-monitor__switch-wrapper">
+            <div class="semonto-website-monitor__test-row">
+                <div class="semonto-website-monitor__test-row-column">
+                    <div class="semonto-website-monitor__switch-wrapper">
                         <label 
                             for="tests[{{ testKey }}][enabled]"
-                            class="semonto-health-monitor__switch-label"
+                            class="semonto-website-monitor__switch-label"
                         >Check database connection</label>
-                        <label class="semonto-health-monitor__switch">
+                        <label class="semonto-website-monitor__switch">
                             <input 
                                 type="checkbox"
                                 id="tests[{{ testKey }}][enabled]"
@@ -20,7 +20,7 @@
                                 name="tests[{{ testKey }}][enabled]"
                                 {{ test.enabled ? 'checked' : '' }} 
                             >
-                            <span class="semonto-health-monitor__test-slider"></span>
+                            <span class="semonto-website-monitor__test-slider"></span>
                         </label>
                         <input 
                             type="hidden" 

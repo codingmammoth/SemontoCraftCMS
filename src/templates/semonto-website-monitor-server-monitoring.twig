@@ -1,25 +1,25 @@
 {% extends "_layouts/cp" %}
-{% set title = "Semonto Website Monitor"|t('semonto-health-monitor') %}
-{% do view.registerAssetBundle("codingmammoth\\craftsemontohealthmonitor\\PluginBundle") %}
+{% set title = "Semonto Website Monitor"|t('semonto-website-monitor') %}
+{% do view.registerAssetBundle("codingmammoth\\craftsemontowebsitemonitor\\PluginBundle") %}
 {% set selectedTab = 'server-monitoring' %}
 
 {% set tabs = {
    'health-monitor': { 
         label: "Semonto"|t, 
-        url: url('settings/plugins/semonto-health-monitor') 
+        url: url('settings/plugins/semonto-website-monitor')
     },
    'website-monitoring': { 
         label: "Website Monitoring"|t, 
-        url: url('settings/plugins/semonto-health-monitor/website-monitoring') 
+        url: url('settings/plugins/semonto-website-monitor/website-monitoring') 
     },
    'server-monitoring': { 
         label: "Server Monitoring"|t, 
-        url: url('settings/plugins/semonto-health-monitor/server-monitoring') 
+        url: url('settings/plugins/semonto-website-monitor/server-monitoring') 
     },
  } %}
 
 {% block content %}
-    <div class="semonto-health-monitor">
+    <div class="semonto-website-monitor">
 
     {% set message = craft.app.session.getFlash('error', null, true) %}
     {% if message %}
@@ -35,11 +35,11 @@
         </p>
     {% endif %}
 
-        <div class="semonto-health-monitor__hero">
+        <div class="semonto-website-monitor__hero">
         
-            <div class="semonto-health-monitor__hero-banner">
-                <div class="semonto-health-monitor__hero-icon-wrapper">
-                    <img class="semonto-health-monitor__hero-icon" width="32" height="32" src="{{ semontoLogoUrl }}" />
+            <div class="semonto-website-monitor__hero-banner">
+                <div class="semonto-website-monitor__hero-icon-wrapper">
+                    <img class="semonto-website-monitor__hero-icon" width="32" height="32" src="{{ semontoLogoUrl }}" />
                 </div>
                 <div>
                     <p>
@@ -48,8 +48,8 @@
                 </div>
             </div>
 
-            <div class="semonto-health-monitor__hero-content-wrapper">
-                <div class="semonto-health-monitor__hero-content">
+            <div class="semonto-website-monitor__hero-content-wrapper">
+                <div class="semonto-website-monitor__hero-content">
                     <div>
                         <h2>To start monitoring this server</h2>
 
@@ -83,9 +83,9 @@
                     </div>
                 </div>
 
-                <div class="semonto-health-monitor__hero-image-wrapper">
+                <div class="semonto-website-monitor__hero-image-wrapper">
                     <div>
-                        <img class="semonto-health-monitor__hero-image" src="{{ semontoDashboard }}" alt="Semonto" />
+                        <img class="semonto-website-monitor__hero-image" src="{{ semontoDashboard }}" alt="Semonto" />
                     </div>
                 </div>
 
@@ -95,7 +95,7 @@
 
         <hr>
 
-        {% include 'semonto-health-monitor/partials/semonto-health-monitor__settings.twig' %}
+        {% include 'semonto-website-monitor/partials/semonto-website-monitor__settings.twig' %}
 
     </div>
 {% endblock %}

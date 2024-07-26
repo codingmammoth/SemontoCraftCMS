@@ -1,32 +1,32 @@
 {% extends "_layouts/cp" %}
-{% set title = "Semonto Website Monitor"|t('semonto-health-monitor') %}
-{% do view.registerAssetBundle("codingmammoth\\craftsemontohealthmonitor\\PluginBundle") %}
+{% set title = "Semonto Website Monitor"|t('semonto-website-monitor') %}
+{% do view.registerAssetBundle("codingmammoth\\craftsemontowebsitemonitor\\PluginBundle") %}
 {% set selectedTab = 'website-monitoring' %}
 
 {% set tabs = {
     'health-monitor': { 
         label: "Semonto"|t, 
-        url: url('settings/plugins/semonto-health-monitor') 
+        url: url('settings/plugins/semonto-website-monitor')
     },
     'website-monitoring': { 
         label: "Website Monitoring"|t, 
-        url: url('settings/plugins/semonto-health-monitor/website-monitoring') 
+        url: url('settings/plugins/semonto-website-monitor/website-monitoring') 
     },
     'server-monitoring': { 
         label: "Server Monitoring"|t, 
-        url: url('settings/plugins/semonto-health-monitor/server-monitoring') 
+        url: url('settings/plugins/semonto-website-monitor/server-monitoring') 
     },
 } %}
 
 {% block content %}
 
-    <div class="semonto-health-monitor">
+    <div class="semonto-website-monitor">
 
-        <div class="semonto-health-monitor__hero">
+        <div class="semonto-website-monitor__hero">
         
-            <div class="semonto-health-monitor__hero-banner">
-                <div class="semonto-health-monitor__hero-icon-wrapper">
-                    <img class="semonto-health-monitor__hero-icon" width="32" height="32" src="{{ semontoLogoUrl }}" />
+            <div class="semonto-website-monitor__hero-banner">
+                <div class="semonto-website-monitor__hero-icon-wrapper">
+                    <img class="semonto-website-monitor__hero-icon" width="32" height="32" src="{{ semontoLogoUrl }}" />
                 </div>
                 <div>
                     <p>
@@ -36,11 +36,11 @@
                 </div>
             </div>
 
-            <div class="semonto-health-monitor__hero-content-wrapper">
-                <div class="semonto-health-monitor__hero-content">
+            <div class="semonto-website-monitor__hero-content-wrapper">
+                <div class="semonto-website-monitor__hero-content">
                     <div>
                         <h2>What semonto will monitor</h2>
-                        <ul class="semonto-health-monitor__hero-content-list">
+                        <ul class="semonto-website-monitor__hero-content-list">
                             <li>
                                 <a target="_blank" rel="noopener noreferrer" href="https://semonto.com/feature/uptime-report">Uptime</a>
                             </li>
@@ -59,7 +59,7 @@
                         </ul>
 
                         <h2>In semonto you can</h2>
-                        <ul class="semonto-health-monitor__hero-content-list">
+                        <ul class="semonto-website-monitor__hero-content-list">
                             <li>Add multiple websites</li>
                             <li>Choose how you want to get notified</li>
                             <li>See the current status of your website</li>
@@ -67,14 +67,14 @@
                             <li>Add team members</li>
                         </ul>
 
-                        <a class="semonto-health-monitor__cta-button btn" target="_blank" rel="noopener noreferrer" href="https://semonto.com/">Go to semonto</a>
+                        <a class="semonto-website-monitor__cta-button btn" target="_blank" rel="noopener noreferrer" href="https://semonto.com/">Go to semonto</a>
 
                     </div>
                 </div>
                 
-                <div class="semonto-health-monitor__hero-image-wrapper">
+                <div class="semonto-website-monitor__hero-image-wrapper">
                     <div>
-                        <img class="semonto-health-monitor__hero-image" src="{{ semontoDashboard }}" alt="Semonto" />
+                        <img class="semonto-website-monitor__hero-image" src="{{ semontoDashboard }}" alt="Semonto" />
                     </div>
                 </div>
             
