@@ -16,7 +16,7 @@ use yii\web\Response;
 use craft\web\View;
 
 /**
- * Semonto Health Monitor plugin
+ * Semonto Website Monitor plugin
  *
  * @method static Plugin getInstance()
  * @method Settings getSettings()
