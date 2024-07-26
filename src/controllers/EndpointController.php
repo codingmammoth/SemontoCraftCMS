@@ -1,6 +1,6 @@
 <?php
 
-namespace codingmammoth\craftsemontohealthmonitor\controllers;
+namespace codingmammoth\craftsemontowebsitemonitor\controllers;
 
 use craft\web\Controller;
 
