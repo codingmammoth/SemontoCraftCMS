@@ -7,7 +7,7 @@ use Craft;
 
 function getConfig()
 {
-    $plugin = Craft::$app->plugins->getPlugin('semonto-health-monitor');
+    $plugin = Craft::$app->plugins->getPlugin('semonto-website-monitor');
 
     if ($plugin === null) {
         Craft::error('Could not find the plugin', __METHOD__);
