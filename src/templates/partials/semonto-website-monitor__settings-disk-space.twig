@@ -9,34 +9,35 @@
 
         {% for testKey, test in tests %}
             {% if test.test == 'DiskSpace' %}
-                <div class="semonto-website-monitor__test-row">
-                    <div class="semonto-website-monitor__test-row-column">
-                        <div class="semonto-website-monitor__switch-wrapper">
-                            <label 
-                                for="tests[{{ testKey }}][enabled]"
-                                class="semonto-website-monitor__switch-label"
-                            >Check disk space</label>
-                            <label class="semonto-website-monitor__switch">
-                                <input 
-                                    type="checkbox"
-                                    id="tests[{{ testKey }}][enabled]"
-                                    value="1" 
-                                    name="tests[{{ testKey }}][enabled]"
-                                    {{ test.enabled ? 'checked' : '' }}
-                                >
-                                <span class="semonto-website-monitor__test-slider"></span>
-                            </label>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="semonto-website-monitor__test-headers">
-                    <div class="semonto-website-monitor__test-header">Available disks</div>
-                    <div class="semonto-website-monitor__test-header semonto-website-monitor__test-header--value">Warning percentage</div>
-                    <div class="semonto-website-monitor__test-header semonto-website-monitor__test-header--value">Error percentage</div>
-                </div>
 
                 {% if test.config.disks is not empty %}
+                    <div class="semonto-website-monitor__test-row">
+                        <div class="semonto-website-monitor__test-row-column">
+                            <div class="semonto-website-monitor__switch-wrapper">
+                                <label 
+                                    for="tests[{{ testKey }}][enabled]"
+                                    class="semonto-website-monitor__switch-label"
+                                >Check disk space</label>
+                                <label class="semonto-website-monitor__switch">
+                                    <input 
+                                        type="checkbox"
+                                        id="tests[{{ testKey }}][enabled]"
+                                        value="1" 
+                                        name="tests[{{ testKey }}][enabled]"
+                                        {{ test.enabled ? 'checked' : '' }}
+                                    >
+                                    <span class="semonto-website-monitor__test-slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="semonto-website-monitor__test-headers">
+                        <div class="semonto-website-monitor__test-header">Available disks</div>
+                        <div class="semonto-website-monitor__test-header semonto-website-monitor__test-header--value">Warning percentage</div>
+                        <div class="semonto-website-monitor__test-header semonto-website-monitor__test-header--value">Error percentage</div>
+                    </div>
+
                     {% for disk_name, disk_config in test.config.disks %}
                         <div class="semonto-website-monitor__test-row">
                             <div class="semonto-website-monitor__test-row-column">
@@ -102,7 +103,12 @@
                         {% endif %}
 
                     {% endfor %}
+                {% else %}
+                    <p class="semonto-website-monitor__not-supported-warning">
+                        ℹ️ There aren't any disks to monitor.
+                    </p>
                 {% endif %}
+
             {% endif %}
         {% endfor %}
 
