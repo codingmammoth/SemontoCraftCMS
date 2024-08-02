@@ -250,8 +250,15 @@ class Settings extends Model
                 return false;
             }
 
-            if (($test['test'] === 'DiskSpace' || $test['test'] === 'DiskSpaceInode') && !$features['df_command']) {
-                return false;
+            if (($test['test'] === 'DiskSpace' || $test['test'] === 'DiskSpaceInode')) {
+                if (!$features['df_command']) {
+                    return false;
+                }
+
+                // Prevents running the disk space tests if there aren't any disks available.
+                if (empty($test['config']) || empty($test['config']['disks'])) {
+                    return false;
+                }
             }
 
             if ($test['test'] === 'MemoryUsage' && !$features['vmstat_command']) {
