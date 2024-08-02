@@ -7,4 +7,4 @@
 - Adds support for CraftCMS 5
 
 ## v1.0.2 - 2024-08-02
-- Improves handeling the case when no disks are available
+- Improves handling the case when no disks are available
