@@ -115,7 +115,17 @@ class Settings extends Model
             }
         }
 
+        // Makes sure a disk config is available.
+        if (!isset($this->test_config['DiskSpace']['config'])) {
+            $this->test_config['DiskSpace']['config'] = [ 'disks' => [] ];
+        }
+
+        if (!isset($this->test_config['DiskSpaceInode']['config'])) {
+            $this->test_config['DiskSpaceInode']['config'] = [ 'disks' => [] ];
+        }
+
         $existing_disks = array_keys($defaultDiskConfig);
+
         $configured_disks_diskspace = array_keys($this->test_config['DiskSpace']['config']['disks']);
         $configured_disks_diskspace_inode = array_keys($this->test_config['DiskSpaceInode']['config']['disks']);
 
@@ -165,6 +175,11 @@ class Settings extends Model
         $this->test_config[$test_id]['enabled'] = $enabled;
 
         if ($test_id == 'DiskSpace' || $test_id == 'DiskSpaceInode') {
+            // Makes sure the disk config is saved.
+            if (!isset($config['disks'])) {
+                $config['disks'] = [];
+            }
+
             // The enabled key can be missing for a disk.
             $disks = array_keys($config['disks']);
             foreach ($disks as $disk) {
