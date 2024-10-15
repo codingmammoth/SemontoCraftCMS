@@ -36,7 +36,7 @@ class Settings extends Model
         'MemoryUsage' => [
             'test' => 'MemoryUsage',
             'enabled' => true,
-            'config' => ['warning_threshold' => 75, 'error_threshold' => 90],
+            'config' => ['warning_percentage_threshold' => 75, 'error_percentage_threshold' => 90],
             'error' => false
         ],
         'DiskSpace' => [
