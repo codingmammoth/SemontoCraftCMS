@@ -204,8 +204,8 @@ class PluginController extends Controller
 
                 if ($newSettings['tests']['value'][$test_id]['enabled']) {
                     [ $error, $message ] = $this->validateThresholds(
-                        $newSettings['tests']['value'][$test_id]['config']['warning_threshold'],
-                        $newSettings['tests']['value'][$test_id]['config']['error_threshold'],
+                        $newSettings['tests']['value'][$test_id]['config']['warning_percentage_threshold'],
+                        $newSettings['tests']['value'][$test_id]['config']['error_percentage_threshold'],
                         ['required', 'numbers', 'notNegative', 'max100', 'warningLessThenError']
                     );
 

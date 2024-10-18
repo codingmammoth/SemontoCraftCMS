@@ -35,9 +35,9 @@
                     <div class="semonto-website-monitor__test-row-column">
                         <input 
                             type="number" 
-                            id="warning_threshold{{testKey}}" 
-                            name="tests[{{ testKey }}][config][warning_threshold]" 
-                            value="{{ test.config.warning_threshold }}" 
+                            id="tests[{{ testKey }}][config][warning_percentage_threshold]" 
+                            name="tests[{{ testKey }}][config][warning_percentage_threshold]" 
+                            value="{{ test.config.warning_percentage_threshold ?? test.config.warning_threshold }}" 
                             min="0" 
                             max="100"
                             required
@@ -52,9 +52,9 @@
                     <div class="semonto-website-monitor__test-row-column">
                         <input 
                             type="number" 
-                            id="error_threshold{{testKey}}" 
-                            name="tests[{{ testKey }}][config][error_threshold]" 
-                            value="{{ test.config.error_threshold }}" 
+                            id="tests[{{ testKey }}][config][error_percentage_threshold]" 
+                            name="tests[{{ testKey }}][config][error_percentage_threshold]" 
+                            value="{{ test.config.error_percentage_threshold ?? test.config.error_threshold }}" 
                             min="0" 
                             max="100"
                             required

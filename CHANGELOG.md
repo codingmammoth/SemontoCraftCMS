@@ -8,3 +8,6 @@
 
 ## v1.0.2 - 2024-08-02
 - Improves handling the case when no disks are available
+
+## v1.0.3 - 2024-10-17
+- Corrects calculation of the percentage in the memory usage test
