@@ -212,7 +212,9 @@ class Settings extends Model
             for ($i = 1; $i < count($lines); $i++) {
                 if (trim($lines[$i]) != '') {
                     $cols = preg_split('/\s+/', $lines[$i]);
-                    if (preg_match('/^\/dev\//', $cols[0])) {
+                    if (!isset($cols[0])) { continue; }
+
+                    if (preg_match('/^\/dev\/(?!loop|ram|vd|fd|sr|shm)\w+/', $cols[0])) {
                         $disks[$cols[0]] = [
                             'enabled' => true,
                             'warning_percentage_threshold' => 80,
