@@ -11,3 +11,6 @@
 
 ## v1.0.3 - 2024-10-17
 - Corrects calculation of the percentage in the memory usage test
+
+## v1.0.4 - 2025-03-25
+- Improved disk detection by filtering out non-physical disks
